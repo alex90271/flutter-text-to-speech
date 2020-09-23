@@ -4,7 +4,7 @@ import os
 #https://cloud.google.com/text-to-speech/docs/ssml how to format ssml
 
 def insert_break():
-    pass #<break time="3s"/>
+    pass #<break time="1s"/>
 def insert_emphasis():
     pass
 def change_pitch():
