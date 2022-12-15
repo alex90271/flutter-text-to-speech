@@ -52,10 +52,12 @@ class TextToSpeechService {
       {required String text,
       String voiceName = 'en-US-Wavenet-D',
       String audioEncoding = 'MP3',
-      String languageCode = 'en-US'}) async {
+      String languageCode = 'en-US',
+      int pitch = -2,
+      double speakingRate = 0.85}) async {
     const endpoint = 'text:synthesize';
     String body =
-        '{"input": {"ssml":"$text"},"voice": {"languageCode": "$languageCode", "name": "$voiceName"},"audioConfig": {"audioEncoding": "$audioEncoding"}}';
+        '{"input": {"ssml":"$text"},"voice": {"languageCode": "$languageCode", "name": "$voiceName"},"audioConfig": {"audioEncoding": "$audioEncoding", "speakingRate": $speakingRate, "pitch": $pitch}}';
     Future<http.Response> request = http.post(_getApiUrl(endpoint), body: body);
     try {
       var response = await _getResponse(request);
